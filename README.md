@@ -1,5 +1,7 @@
 # GLPI avec Fusion inventory
 
+https://hub.docker.com/r/ztevoz/glpi
+
 ## Exemple
 
 
