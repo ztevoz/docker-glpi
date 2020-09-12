@@ -44,6 +44,7 @@ RUN tar -xvf "/var/www/html/glpi/plugins/${FUSION_INVENTORY_TGZ}" -C /var/www/ht
 RUN chown -R www-data:www-data /var/www/html/glpi/plugins
 
 RUN echo "* * * * * /usr/bin/php /var/www/html/glpi/front/cron.php &>/dev/null" > /etc/crontab
+RUN service cron start
 
 ENTRYPOINT ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
 
