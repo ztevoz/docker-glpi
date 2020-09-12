@@ -9,4 +9,9 @@ $docker run --name glpi-db  -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=glpi -
 
 $docker run --name glpi --link glpi-db:db --volume glpi-data:/var/www/html/glpi/files/ -p 81:80 -p 62354:62354  -d ztevoz/glpi
 
+### Post Install
+
+$docker exec glpi rm /var/www/html/glpi/install/install.php
+
+
 ## Docker-Compose
