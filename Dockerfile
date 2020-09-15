@@ -45,7 +45,7 @@ RUN wget -P https://forge.glpi-project.org/attachments/download/2314/glpi-pdf-1.
 RUN tar -xvf "/var/www/html/glpi/plugins/glpi-pdf-1.7.0.tar.gz"
 RUN chown -R www-data:www-data /var/www/html/glpi/plugins
 
-RUN echo "* * * * * /usr/bin/php7.5 /var/www/html/glpi/front/cron.php &>/dev/null" > /etc/crontab
+RUN echo "* * * * * root /usr/bin/php7.5 /var/www/html/glpi/front/cron.php &>/dev/null" > /etc/crontab
 RUN service cron start
 
 ENTRYPOINT ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
