@@ -41,8 +41,8 @@ RUN a2enmod rewrite && service apache2 restart && service apache2 stop
 RUN rm /var/www/html/glpi/plugins/remove.txt
 RUN wget -P /var/www/html/glpi/plugins "${FUSION_INVENTORY_PATH}"
 RUN tar -xvf "/var/www/html/glpi/plugins/${FUSION_INVENTORY_TGZ}" -C /var/www/html/glpi/plugins/
-RUN wget -P https://forge.glpi-project.org/attachments/download/2314/glpi-pdf-1.7.0.tar.gz  -C /var/www/html/glpi/plugins/
-RUN tar -xvf "/var/www/html/glpi/plugins/glpi-pdf-1.7.0.tar.gz"
+RUN wget -P /var/www/html/glpi/plugins/ https://forge.glpi-project.org/attachments/download/2314/glpi-pdf-1.7.0.tar.gz
+RUN tar -xvf "/var/www/html/glpi/plugins/glpi-pdf-1.7.0.tar.gz" -C /var/www/html/glpi/plugins/
 RUN chown -R www-data:www-data /var/www/html/glpi/plugins
 
 RUN echo "* * * * * root /usr/bin/php7.5 /var/www/html/glpi/front/cron.php &>/dev/null" > /etc/crontab
