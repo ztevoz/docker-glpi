@@ -1,4 +1,6 @@
-# GLPI avec Fusion inventory
+# GLPI avec Fusion inventory; Behaviours et PDF pré-téléchargés
+
+date mise à l'heure FR et cron configuré pour GLPI
 
 https://hub.docker.com/r/ztevoz/glpi
 
