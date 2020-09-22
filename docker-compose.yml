@@ -1,0 +1,40 @@
+version: "3"
+
+volumes:
+  glpi_sql_data:
+    driver: local
+  glpi_files:
+    driver: local
+  glpi_config:
+    driver: local
+networks:
+  glpi-network:
+    driver: bridge
+
+services:
+
+  mariadb:
+    image: mariadb:latest
+    volumes:
+      - glpi_sql_data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: glpi
+      MYSQL_USER: glpi
+      MYSQL_PASSWORD: glpi
+    restart: always
+    networks:
+      glpi-network:
+
+  glpi:
+    image: ztevoz/glpi:latest
+    volumes:
+      - glpi_files:/var/www/html/glpi/files
+      - glpi_config:/var/www/html/glpi/config
+    ports:
+      - 80:80
+    depends_on:
+      - mariadb
+    restart: always
+    networks:
+      glpi-network:
