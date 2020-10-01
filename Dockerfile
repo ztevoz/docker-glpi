@@ -1,6 +1,8 @@
 #docker build --rm -t ztevoz/glpi .
 FROM debian:10.4
 
+#V1
+
 LABEL maintainer="ZtevOz Milloz"
 
 ENV DEBIAN_FRONTEND noninteractive
